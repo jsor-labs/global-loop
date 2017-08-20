@@ -1,0 +1,32 @@
+{
+    "name": "jsor/global-loop",
+    "description": "A global event loop for ReactPHP.",
+    "keywords": [
+        "global",
+        "event-loop",
+        "async",
+        "asynchronous",
+        "reactphp"
+    ],
+    "homepage": "https://github.com/jsor-labs/global-loop",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jan Sorgalla",
+            "email": "jsorgalla@gmail.com",
+            "homepage": "http://sorgalla.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "react/event-loop": "^0.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jsor\\GlobalLoop\\": "src/"
+        }
+    }
+}
