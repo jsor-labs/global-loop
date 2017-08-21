@@ -1,41 +1,41 @@
 <?php
 
-namespace Jsor\GlobalLoop;
+namespace Jsor;
 
 use PHPUnit\Framework\TestCase;
 use React\EventLoop\LoopInterface;
 
-class LoopTest extends TestCase
+class GlobalLoopTest extends TestCase
 {
     /** @test */
     public function it_gets_the_loop()
     {
-        $this->assertInstanceOf(LoopInterface::class, Loop::get());
+        $this->assertInstanceOf(LoopInterface::class, GlobalLoop::get());
     }
 
     /** @test */
     public function is_allows_setting_a_custom_loop()
     {
-        $loop = Loop::get();
+        $loop = GlobalLoop::get();
         $custom = $this->getMockBuilder(LoopInterface::class)->getMock();
 
-        Loop::set($custom);
+        GlobalLoop::set($custom);
 
-        $this->assertSame($custom, Loop::get());
+        $this->assertSame($custom, GlobalLoop::get());
 
-        Loop::set($loop);
+        GlobalLoop::set($loop);
     }
 
     /** @test */
     public function it_returns_the_same_loop_instance_for_subsequent_get_calls()
     {
-        $this->assertSame(Loop::get(), Loop::get());
+        $this->assertSame(GlobalLoop::get(), GlobalLoop::get());
     }
 
     /** @test */
     public function it_runs_the_loop()
     {
-        $loop = Loop::get();
+        $loop = GlobalLoop::get();
 
         $called = false;
 
@@ -43,7 +43,7 @@ class LoopTest extends TestCase
             $called = true;
         });
 
-        Loop::run();
+        GlobalLoop::run();
 
         $this->assertTrue($called);
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Jsor\GlobalLoop;
+namespace Jsor;
 
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
 
-final class Loop
+final class GlobalLoop
 {
     /**
      * @var LoopInterface
@@ -28,4 +28,4 @@ final class Loop
     }
 }
 
-Loop::set(Factory::create());
+GlobalLoop::set(Factory::create());

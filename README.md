@@ -24,7 +24,7 @@ the loop instance around, eg. as argument to functions and class constructors.
 This library allows to use a single event loop instance from everywhere by
 providing static global accessors.
 
-The only requirement is to call the static `Jsor\GlobalLoop\Loop::run()` at the
+The only requirement is to call the static `Jsor\GlobalLoop::run()` at the
 end of your program.
 
 ```php
@@ -32,27 +32,27 @@ end of your program.
 
 // Application runs here
 
-Jsor\GlobalLoop\Loop::run();
+Jsor\GlobalLoop::run();
 ```
 
 You can then access the global loop instance from from inside your application
-code by calling `Jsor\GlobalLoop\Loop::get()`.
+code by calling `Jsor\GlobalLoop::get()`.
 
 The default loop implementation is created using 
 `React\EventLoop\Factory::create()` which picks the best available loop
 implementation.
 
 If you want to use a specific or custom loop implementation, you can set it with
-`Jsor\GlobalLoop\Loop::set()` at the beginning of your program.
+`Jsor\GlobalLoop::set()` at the beginning of your program.
 
 ```php
 <?php
 
-Jsor\GlobalLoop\Loop::set(new MyLoopImplementation());
+Jsor\GlobalLoop::set(new MyLoopImplementation());
 
 // Application runs here
 
-Jsor\GlobalLoop\Loop::run();
+Jsor\GlobalLoop::run();
 ```
 
 License
